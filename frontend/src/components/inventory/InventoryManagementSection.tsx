@@ -323,7 +323,7 @@ export const InventoryManagementSection: React.FC<InventoryManagementSectionProp
   return (
     <div className="space-y-4">
       {/* 1. Inventory Dashboard Metric Cards (Requirement 3) */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
         {/* Total Items */}
         <div className="p-3 bg-slate-900 border border-slate-800 rounded-xl shadow-sm">
           <div className="flex items-center justify-between text-slate-400 text-[11px]">
@@ -1227,7 +1227,7 @@ export const InventoryManagementSection: React.FC<InventoryManagementSectionProp
             </div>
 
             <form onSubmit={handleEditSubmit} className="p-4 space-y-3.5 text-xs overflow-y-auto flex-1">
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block text-slate-300 font-semibold mb-1">Item Name</label>
                   <input
@@ -1260,7 +1260,7 @@ export const InventoryManagementSection: React.FC<InventoryManagementSectionProp
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div>
                   <label className="block text-slate-300 font-semibold mb-1">Subcategory / Type</label>
                   <select
@@ -1295,7 +1295,7 @@ export const InventoryManagementSection: React.FC<InventoryManagementSectionProp
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div>
                   <label className="block text-slate-300 font-semibold mb-1">Serial Number</label>
                   <input
@@ -1327,7 +1327,7 @@ export const InventoryManagementSection: React.FC<InventoryManagementSectionProp
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div>
                   <label className="block text-slate-300 font-semibold mb-1">Supplier</label>
                   <input

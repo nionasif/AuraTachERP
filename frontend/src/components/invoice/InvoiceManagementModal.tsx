@@ -346,31 +346,31 @@ export const InvoiceManagementModal: React.FC<InvoiceManagementModalProps> = ({
     <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
       <div className="bg-slate-900 border border-slate-750 rounded-2xl w-full max-w-5xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh] text-slate-100 my-auto">
         {/* Top Header */}
-        <div className="bg-slate-950 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
-          <div className="flex items-center space-x-2.5">
-            <div className="p-1.5 rounded-lg bg-emerald-500/20 text-emerald-400">
+        <div className="bg-slate-950 px-3 sm:px-4 py-2.5 sm:py-3 border-b border-slate-800 flex items-center justify-between gap-2">
+          <div className="flex items-center space-x-2 sm:space-x-2.5 min-w-0">
+            <div className="p-1.5 rounded-lg bg-emerald-500/20 text-emerald-400 flex-shrink-0">
               <Receipt className="w-5 h-5" />
             </div>
-            <div>
-              <h3 className="font-bold text-sm text-slate-100 flex items-center space-x-2">
-                <span>Enterprise Invoicing & SOW Billing System</span>
-                <span className="text-[10px] bg-slate-800 text-slate-400 px-2 py-0.5 rounded font-mono border border-slate-700">
+            <div className="min-w-0">
+              <h3 className="font-bold text-xs sm:text-sm text-slate-100 flex items-center space-x-2 truncate">
+                <span className="truncate">Enterprise Invoicing & SOW Billing</span>
+                <span className="text-[10px] bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono border border-slate-700 hidden sm:inline">
                   Mushak-6.3 Compliant
                 </span>
               </h3>
-              <p className="text-[11px] text-slate-400">
+              <p className="text-[10px] sm:text-[11px] text-slate-400 truncate">
                 Connected with Sales & Service and Finance & Accounting modules
               </p>
             </div>
           </div>
 
-          <button onClick={handleModalClose} className="text-slate-400 hover:text-white p-1 rounded hover:bg-slate-800">
+          <button onClick={handleModalClose} className="text-slate-400 hover:text-white p-1 rounded hover:bg-slate-800 flex-shrink-0">
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Tab Switcher Header */}
-        <div className="bg-slate-950 px-4 border-b border-slate-800 flex items-center justify-between text-xs select-none">
+        <div className="bg-slate-950 px-3 sm:px-4 border-b border-slate-800 flex items-center justify-between text-xs select-none overflow-x-auto whitespace-nowrap">
           <div className="flex space-x-1">
             <button
               onClick={() => setActiveTab('HISTORY')}

@@ -20,7 +20,7 @@ export const ReceiptModal: React.FC<ReceiptModalProps> = ({ store }) => {
   return (
     <div
       onClick={(e) => { if (e.target === e.currentTarget) closeModal(); }}
-      className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto"
+      className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 overflow-y-auto"
     >
       <div className="bg-slate-900 border border-slate-750 rounded-xl w-full max-w-md shadow-2xl overflow-hidden text-slate-100 flex flex-col my-auto">
         {/* Modal Top Actions */}

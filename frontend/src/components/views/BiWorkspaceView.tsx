@@ -267,7 +267,7 @@ export const BiWorkspaceView: React.FC<BiWorkspaceViewProps> = ({ store }) => {
       )}
 
       {/* Executive Real-time KPI Metric Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-3 p-4 bg-slate-900/60 border-b border-slate-800">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-3 p-3 sm:p-4 bg-slate-900/60 border-b border-slate-800">
         <div className="bg-slate-900/90 border border-slate-800 rounded-lg p-3 flex items-center justify-between">
           <div>
             <div className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Total Realized Revenue</div>
@@ -327,11 +327,11 @@ export const BiWorkspaceView: React.FC<BiWorkspaceViewProps> = ({ store }) => {
       </div>
 
       {/* Navigation Tabs */}
-      <div className="bg-slate-900/90 px-4 py-2 border-b border-slate-800 flex items-center justify-between">
-        <div className="flex items-center space-x-1.5 bg-slate-950 p-1 rounded-lg border border-slate-800">
+      <div className="bg-slate-900/90 px-3 sm:px-4 py-2 border-b border-slate-800 flex items-center justify-between overflow-x-auto">
+        <div className="flex items-center space-x-1.5 bg-slate-950 p-1 rounded-lg border border-slate-800 overflow-x-auto max-w-full">
           <button
             onClick={() => setActiveTab('EXECUTIVE')}
-            className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-md text-xs font-semibold transition ${
+            className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-md text-xs font-semibold transition whitespace-nowrap flex-shrink-0 ${
               activeTab === 'EXECUTIVE'
                 ? 'bg-purple-600 text-white font-bold shadow'
                 : 'text-slate-400 hover:text-slate-200 hover:bg-slate-850'
@@ -343,7 +343,7 @@ export const BiWorkspaceView: React.FC<BiWorkspaceViewProps> = ({ store }) => {
 
           <button
             onClick={() => setActiveTab('MARGINS')}
-            className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-md text-xs font-semibold transition ${
+            className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-md text-xs font-semibold transition whitespace-nowrap flex-shrink-0 ${
               activeTab === 'MARGINS'
                 ? 'bg-amber-600 text-slate-950 font-bold shadow'
                 : 'text-slate-400 hover:text-slate-200 hover:bg-slate-850'
@@ -355,7 +355,7 @@ export const BiWorkspaceView: React.FC<BiWorkspaceViewProps> = ({ store }) => {
 
           <button
             onClick={() => setActiveTab('CLIENTS')}
-            className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-md text-xs font-semibold transition ${
+            className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-md text-xs font-semibold transition whitespace-nowrap flex-shrink-0 ${
               activeTab === 'CLIENTS'
                 ? 'bg-cyan-600 text-white font-bold shadow'
                 : 'text-slate-400 hover:text-slate-200 hover:bg-slate-850'
@@ -367,7 +367,7 @@ export const BiWorkspaceView: React.FC<BiWorkspaceViewProps> = ({ store }) => {
 
           <button
             onClick={() => setActiveTab('TRENDS')}
-            className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-md text-xs font-semibold transition ${
+            className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-md text-xs font-semibold transition whitespace-nowrap flex-shrink-0 ${
               activeTab === 'TRENDS'
                 ? 'bg-emerald-600 text-white font-bold shadow'
                 : 'text-slate-400 hover:text-slate-200 hover:bg-slate-850'
@@ -379,7 +379,7 @@ export const BiWorkspaceView: React.FC<BiWorkspaceViewProps> = ({ store }) => {
 
           <button
             onClick={() => setActiveTab('ML_FORECAST')}
-            className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-md text-xs font-semibold transition ${
+            className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-md text-xs font-semibold transition whitespace-nowrap flex-shrink-0 ${
               activeTab === 'ML_FORECAST'
                 ? 'bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-bold shadow'
                 : 'text-slate-400 hover:text-slate-200 hover:bg-slate-850'

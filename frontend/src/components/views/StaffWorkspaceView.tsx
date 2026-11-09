@@ -59,9 +59,9 @@ export const StaffWorkspaceView: React.FC<Props> = ({ store }) => {
   };
 
   return (
-    <div className="flex-1 min-h-0 overflow-y-auto p-6">
-      <div className="max-w-6xl mx-auto space-y-5">
-        <div className="inline-flex rounded-xl bg-gray-100 p-1">
+    <div className="flex-1 min-h-0 overflow-y-auto p-4 sm:p-6">
+      <div className="max-w-6xl mx-auto space-y-4 sm:space-y-5">
+        <div className="inline-flex max-w-full overflow-x-auto rounded-xl bg-gray-100 p-1 whitespace-nowrap">
           {TABS.map(t => {
             const Icon = t.icon;
             return (
@@ -69,7 +69,7 @@ export const StaffWorkspaceView: React.FC<Props> = ({ store }) => {
                 key={t.id}
                 onClick={() => setTab(t.id)}
                 className={cx(
-                  'inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition',
+                  'inline-flex items-center gap-2 rounded-lg px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold transition flex-shrink-0',
                   tab === t.id ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-800'
                 )}
               >

@@ -131,15 +131,15 @@ export const Modal: React.FC<{ title: string; subtitle?: string; onClose: () => 
   }, [onClose]);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-gray-900/40 backdrop-blur-[2px]" onMouseDown={onClose}>
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-gray-900/40 backdrop-blur-[2px]" onMouseDown={onClose}>
       <div
-        className={cx('bg-white rounded-2xl shadow-xl w-full max-h-[90vh] flex flex-col', wide ? 'max-w-3xl' : 'max-w-lg')}
+        className={cx('bg-white rounded-2xl shadow-xl w-full max-h-[95vh] sm:max-h-[90vh] flex flex-col', wide ? 'max-w-3xl' : 'max-w-lg')}
         onMouseDown={e => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
         aria-label={title}
       >
-        <div className="flex items-start justify-between gap-4 px-6 pt-5 pb-3 border-b border-gray-100">
+        <div className="flex items-start justify-between gap-4 px-4 sm:px-6 pt-4 sm:pt-5 pb-3 border-b border-gray-100">
           <div className="min-w-0">
             <h2 className="text-base font-bold text-gray-900 truncate">{title}</h2>
             {subtitle && <p className="text-xs text-gray-500 mt-0.5">{subtitle}</p>}
@@ -148,8 +148,8 @@ export const Modal: React.FC<{ title: string; subtitle?: string; onClose: () => 
             <X className="w-4 h-4" />
           </button>
         </div>
-        <div className="px-6 py-4 overflow-y-auto">{children}</div>
-        {footer && <div className="px-6 py-3 border-t border-gray-100 flex justify-end gap-2 bg-gray-50/60 rounded-b-2xl">{footer}</div>}
+        <div className="px-4 sm:px-6 py-3 sm:py-4 overflow-y-auto">{children}</div>
+        {footer && <div className="px-4 sm:px-6 py-3 border-t border-gray-100 flex flex-wrap justify-end gap-2 bg-gray-50/60 rounded-b-2xl">{footer}</div>}
       </div>
     </div>
   );

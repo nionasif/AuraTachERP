@@ -87,7 +87,7 @@ export const AuditWorkspaceView: React.FC<AuditWorkspaceViewProps> = ({ store })
   return (
     <div className="flex-1 bg-slate-950 flex flex-col overflow-hidden text-slate-100">
       {/* Top Breadcrumb & Header */}
-      <div className="bg-slate-900 border-b border-slate-800 px-4 py-2.5 flex items-center justify-between text-xs select-none">
+      <div className="bg-slate-900 border-b border-slate-800 px-3 sm:px-4 py-2 sm:py-2.5 flex flex-wrap items-center justify-between gap-2 text-xs select-none">
         <div className="flex items-center space-x-2">
           <button
             onClick={() => setView('DASHBOARD')}
@@ -99,14 +99,14 @@ export const AuditWorkspaceView: React.FC<AuditWorkspaceViewProps> = ({ store })
           <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
           <span className="font-bold text-amber-300 flex items-center space-x-1.5">
             <FileCheck className="w-4 h-4 text-cyan-400" />
-            <span>Datacenter Asset Audit, Physical Hardware Count & Discrepancy Reconciliation</span>
+            <span className="truncate max-w-[200px] sm:max-w-none">Asset Audit & Reconciliation</span>
           </span>
           <span className="text-slate-500 font-mono text-[11px] hidden md:inline">
-            [DC01 Silicon Tower Server Racks & Hardware Vault Spot Audit]
+            [DC01 Silicon Tower Server Racks Spot Audit]
           </span>
         </div>
 
-        <div className="flex items-center space-x-2">
+        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
           <div className="bg-slate-950 px-2.5 py-1 rounded border border-slate-800 font-mono text-[11px] text-slate-300 hidden sm:block">
             Internal Auditor: <strong className="text-cyan-300">Tareq Monowar, Lead Infrastructure Auditor (CISA / ISO 27001 LA)</strong>
           </div>

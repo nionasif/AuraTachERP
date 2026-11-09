@@ -17,7 +17,7 @@ export const HomePage: React.FC<HomePageProps> = ({ store }) => {
   if (mode !== 'home') {
     return (
       <div className="min-h-screen bg-gray-50 flex flex-col select-text">
-        <header className="px-6 py-4 flex items-center justify-between">
+        <header className="px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
           <button onClick={() => setMode('home')} aria-label="Back to home">
             <Logo />
           </button>
@@ -26,7 +26,7 @@ export const HomePage: React.FC<HomePageProps> = ({ store }) => {
           </button>
         </header>
         <main className="flex-1 flex items-center justify-center px-4 pb-16">
-          <div className="w-full max-w-md bg-white rounded-2xl border border-gray-200 shadow-sm p-8">
+          <div className="w-full max-w-md bg-white rounded-2xl border border-gray-200 shadow-sm p-5 sm:p-8">
             {mode === 'login' ? (
               <LoginPage store={store} onSwitch={() => setMode('register')} />
             ) : (
@@ -40,7 +40,7 @@ export const HomePage: React.FC<HomePageProps> = ({ store }) => {
 
   return (
     <div className="min-h-screen bg-white flex flex-col select-text">
-      <header className="px-6 sm:px-10 py-4 flex items-center justify-between">
+      <header className="px-4 sm:px-10 py-3 sm:py-4 flex items-center justify-between">
         <Logo />
         <div className="flex items-center gap-2">
           <Button variant="ghost" onClick={() => setMode('login')}>
@@ -50,9 +50,9 @@ export const HomePage: React.FC<HomePageProps> = ({ store }) => {
         </div>
       </header>
 
-      <main className="flex-1 flex flex-col items-center justify-center text-center px-6 pb-20">
+      <main className="flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-6 pb-20">
         <span className="text-xs font-semibold tracking-wide text-indigo-600 bg-indigo-50 rounded-full px-3 py-1">Company workspace</span>
-        <h1 className="mt-5 text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight max-w-2xl leading-tight">
+        <h1 className="mt-5 text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight max-w-2xl leading-tight">
           Run your team and your business from one place
         </h1>
         <p className="mt-4 text-base sm:text-lg text-gray-500 max-w-xl">

@@ -202,7 +202,7 @@ export const RepairProductWorkspaceView: React.FC<RepairProductWorkspaceViewProp
   return (
     <div className="flex-1 bg-slate-950 flex flex-col overflow-hidden text-slate-100 font-sans">
       {/* Breadcrumb Header */}
-      <div className="bg-slate-900 border-b border-slate-800 px-4 py-2.5 flex items-center justify-between text-xs select-none shadow-sm">
+      <div className="bg-slate-900 border-b border-slate-800 px-3 sm:px-4 py-2 sm:py-2.5 flex flex-wrap items-center justify-between gap-2 text-xs select-none shadow-sm">
         <div className="flex items-center space-x-2">
           <button
             onClick={() => setView('DASHBOARD')}
@@ -214,11 +214,11 @@ export const RepairProductWorkspaceView: React.FC<RepairProductWorkspaceViewProp
           <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
           <span className="font-bold text-amber-300 flex items-center space-x-1.5">
             <Cpu className="w-4 h-4 text-amber-400" />
-            <span>Help Desk, ITSM Incidents & Hardware Lab Bench</span>
+            <span className="truncate max-w-[200px] sm:max-w-none">Help Desk & ITSM Incidents</span>
           </span>
         </div>
 
-        <div className="flex items-center space-x-2">
+        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
           <button
             onClick={() => fetchHelpDeskTickets()}
             className="flex items-center space-x-1 px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-[11px]"

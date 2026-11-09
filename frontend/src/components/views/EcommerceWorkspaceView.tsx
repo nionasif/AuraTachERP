@@ -547,7 +547,7 @@ export const EcommerceWorkspaceView: React.FC<EcommerceWorkspaceViewProps> = ({ 
       </div>
 
       {/* 2. Corporate KPI Metric Cards */}
-      <div className="bg-slate-950 px-5 py-3 border-b border-slate-850 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+      <div className="bg-slate-950 px-3 sm:px-5 py-2.5 sm:py-3 border-b border-slate-850 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
         <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-3 flex items-center justify-between">
           <div>
             <div className="text-[10px] text-slate-400 uppercase font-mono tracking-wider">Active Projects</div>
@@ -783,7 +783,7 @@ export const EcommerceWorkspaceView: React.FC<EcommerceWorkspaceViewProps> = ({ 
       <div className="flex-1 overflow-y-auto p-5">
         {/* VIEW A: KANBAN BOARD */}
         {viewMode === 'KANBAN' && (
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 h-full min-h-[500px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 h-full min-h-[500px]">
             {kanbanColumns.map((col) => {
               const colTasks = currentTasks.filter(t => t.status === col.id);
               return (

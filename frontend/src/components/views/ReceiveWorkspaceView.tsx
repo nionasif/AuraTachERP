@@ -423,7 +423,7 @@ export const ReceiveWorkspaceView: React.FC<ReceiveWorkspaceViewProps> = ({ stor
   return (
     <div className="flex-1 bg-slate-950 flex flex-col overflow-hidden text-slate-100 font-sans">
       {/* Top Workspace Header */}
-      <div className="bg-slate-900 border-b border-slate-800 px-4 py-2.5 flex items-center justify-between text-xs select-none">
+      <div className="bg-slate-900 border-b border-slate-800 px-3 sm:px-4 py-2 sm:py-2.5 flex flex-wrap items-center justify-between gap-2 text-xs select-none">
         <div className="flex items-center space-x-2">
           <button
             onClick={() => setView('DASHBOARD')}
@@ -435,14 +435,14 @@ export const ReceiveWorkspaceView: React.FC<ReceiveWorkspaceViewProps> = ({ stor
           <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
           <span className="font-bold text-amber-300 flex items-center space-x-1.5">
             <Truck className="w-4 h-4 text-cyan-400" />
-            <span>Procurement, OEM Vendors & Consignment Intake Workspace</span>
+            <span className="truncate max-w-[200px] sm:max-w-none">Procurement & Vendors</span>
           </span>
-          <span className="bg-emerald-950 text-emerald-400 border border-emerald-800 px-2 py-0.5 rounded text-[10px] font-mono font-bold ml-2">
+          <span className="bg-emerald-950 text-emerald-400 border border-emerald-800 px-2 py-0.5 rounded text-[10px] font-mono font-bold ml-2 hidden sm:inline">
             LIVE BACKEND CONNECTED
           </span>
         </div>
 
-        <div className="flex items-center space-x-2">
+        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
           <button
             onClick={handleRefresh}
             disabled={isRefreshing}

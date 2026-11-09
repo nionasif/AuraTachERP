@@ -58,13 +58,13 @@ export const ManagementDashboard: React.FC<Props> = ({ store }) => {
   const checkedIn = board ? board.rows.filter(r => r.status === 'PRESENT' || r.status === 'LATE').slice(0, 6) : [];
 
   return (
-    <div className="flex-1 overflow-y-auto p-6">
-      <div className="max-w-6xl mx-auto space-y-6">
+    <div className="flex-1 overflow-y-auto p-4 sm:p-6">
+      <div className="max-w-6xl mx-auto space-y-5 sm:space-y-6">
         <div>
-          <h2 className="text-2xl font-bold text-gray-900">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900">
             {greeting()}, {firstName} 👋
           </h2>
-          <p className="text-sm text-gray-500 mt-1">Here is what is happening today.</p>
+          <p className="text-xs sm:text-sm text-gray-500 mt-1">Here is what is happening today.</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
@@ -114,9 +114,9 @@ export const ManagementDashboard: React.FC<Props> = ({ store }) => {
           </Card>
         </div>
 
-        <Card className="p-5 flex items-center justify-between gap-4">
+        <Card className="p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center flex-shrink-0">
               <Network className="w-5 h-5" />
             </div>
             <div>
@@ -124,7 +124,7 @@ export const ManagementDashboard: React.FC<Props> = ({ store }) => {
               <p className="text-xs text-gray-500">See who reports to whom, from the top down.</p>
             </div>
           </div>
-          <button onClick={() => setView('STAFF')} className="text-sm font-semibold text-indigo-600 hover:text-indigo-700 inline-flex items-center gap-1">
+          <button onClick={() => setView('STAFF')} className="text-sm font-semibold text-indigo-600 hover:text-indigo-700 inline-flex items-center gap-1 self-end sm:self-auto">
             Open <ArrowRight className="w-4 h-4" />
           </button>
         </Card>

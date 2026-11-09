@@ -39,9 +39,9 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ store }) => {
   return (
     <div
       onClick={(e) => { if (e.target === e.currentTarget) closeModal(); }}
-      className="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4"
+      className="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4"
     >
-      <div className="bg-slate-900 border border-slate-750 rounded-xl w-full max-w-lg shadow-2xl overflow-hidden text-slate-100 flex flex-col">
+      <div className="bg-slate-900 border border-slate-750 rounded-xl w-full max-w-lg shadow-2xl overflow-hidden text-slate-100 flex flex-col max-h-[92vh]">
         {/* Modal Header */}
         <div className="bg-slate-950 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
           <div className="flex items-center space-x-2">
@@ -62,7 +62,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ store }) => {
         </div>
 
         {/* Method Switcher Tabs */}
-        <div className="grid grid-cols-3 border-b border-slate-800 bg-slate-950 text-xs font-semibold">
+        <div className="grid grid-cols-3 border-b border-slate-800 bg-slate-950 text-[11px] sm:text-xs font-semibold">
           <button
             onClick={() => setMethod('CARD')}
             className={`py-2.5 flex items-center justify-center space-x-1.5 transition ${
@@ -98,7 +98,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ store }) => {
         <div className="p-4 space-y-4 text-xs font-sans">
           {method === 'CARD' && (
             <div className="space-y-3">
-              <div className="flex space-x-2">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {['VISA Commercial', 'Mastercard Corp', 'AMEX B2B', 'NexusPay'].map((type) => (
                   <button
                     key={type}
@@ -186,7 +186,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ store }) => {
               {/* Quick Note Buttons */}
               <div>
                 <span className="text-[10px] text-slate-400 block mb-1">Quick Denominations:</span>
-                <div className="grid grid-cols-5 gap-1.5 font-mono">
+                <div className="grid grid-cols-3 sm:grid-cols-5 gap-1.5 font-mono">
                   {[grandTotal, 50000, 100000, 200000, 500000].map((val, idx) => (
                     <button
                       key={idx}
@@ -211,7 +211,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ store }) => {
         </div>
 
         {/* Modal Footer */}
-        <div className="bg-slate-950 px-4 py-3 border-t border-slate-800 flex items-center justify-end space-x-2">
+        <div className="bg-slate-950 px-4 py-3 border-t border-slate-800 flex flex-wrap items-center justify-end gap-2">
           <button
             onClick={closeModal}
             className="px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-750 text-slate-300 text-xs font-medium transition"
@@ -220,10 +220,10 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ store }) => {
           </button>
           <button
             onClick={handleFinish}
-            className="px-5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-xs flex items-center space-x-1.5 shadow-lg transition"
+            className="px-4 sm:px-5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-xs flex items-center space-x-1.5 shadow-lg transition"
           >
-            <Check className="w-4 h-4" />
-            <span>Authorize SOW & Print Enterprise Invoice</span>
+            <Check className="w-4 h-4 flex-shrink-0" />
+            <span>Authorize SOW & Print Invoice</span>
           </button>
         </div>
       </div>

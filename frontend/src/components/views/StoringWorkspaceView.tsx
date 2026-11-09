@@ -125,7 +125,7 @@ export const StoringWorkspaceView: React.FC<StoringWorkspaceViewProps> = ({ stor
   return (
     <div className="flex-1 bg-slate-950 flex flex-col overflow-hidden text-slate-100">
       {/* Workspace Breadcrumb & Header */}
-      <div className="bg-slate-900 border-b border-slate-800 px-4 py-2.5 flex items-center justify-between text-xs select-none">
+      <div className="bg-slate-900 border-b border-slate-800 px-3 sm:px-4 py-2 sm:py-2.5 flex flex-wrap items-center justify-between gap-2 text-xs select-none">
         <div className="flex items-center space-x-2">
           <button
             onClick={() => setView('DASHBOARD')}
@@ -137,7 +137,7 @@ export const StoringWorkspaceView: React.FC<StoringWorkspaceViewProps> = ({ stor
           <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
           <span className="font-bold text-amber-300 flex items-center space-x-1.5">
             <Server className="w-4 h-4 text-cyan-400" />
-            <span>IT Assets & Resources — Inventory Management</span>
+            <span className="truncate max-w-[200px] sm:max-w-none">IT Assets & Inventory</span>
           </span>
           <span className="text-slate-500 font-mono text-[11px] hidden md:inline">
             [DC01 Silicon Tower Datacenter & Enterprise Hub]

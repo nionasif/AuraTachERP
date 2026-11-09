@@ -136,8 +136,8 @@ export const PosTerminal: React.FC<PosTerminalProps> = ({ store }) => {
   return (
     <div className="flex-1 bg-slate-950 flex flex-col overflow-hidden text-slate-200">
       {/* POS Top Control Strip */}
-      <div className="bg-slate-900 border-b border-slate-800 px-3 py-2 flex items-center justify-between text-xs select-none">
-        <div className="flex items-center space-x-3">
+      <div className="bg-slate-900 border-b border-slate-800 px-3 py-2 flex flex-wrap items-center justify-between gap-2 text-xs select-none">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3">
           <div className="flex items-center space-x-1.5 font-bold text-emerald-400 bg-emerald-950/60 px-2.5 py-1 rounded border border-emerald-800/80">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             <span>Billing Terminal Desk #{state.storeInfo.activeRegisterNo}</span>
@@ -154,7 +154,7 @@ export const PosTerminal: React.FC<PosTerminalProps> = ({ store }) => {
         </div>
 
         {/* Parked Carts and Shift Management */}
-        <div className="flex items-center space-x-2">
+        <div className="flex flex-wrap items-center gap-1.5">
           {state.parkedCarts.length > 0 && (
             <div className="flex items-center space-x-1 bg-amber-950/70 border border-amber-800 px-2 py-0.5 rounded text-amber-300 font-mono">
               <PauseCircle className="w-3.5 h-3.5 text-amber-400" />
@@ -211,9 +211,9 @@ export const PosTerminal: React.FC<PosTerminalProps> = ({ store }) => {
       </div>
 
       {/* Main Dual-Pane POS Interface */}
-      <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 overflow-hidden">
+      <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 overflow-y-auto lg:overflow-hidden">
         {/* LEFT / CENTER PANE: Product Catalog & Fast Barcode Scanner (7 Cols) */}
-        <div className="lg:col-span-7 flex flex-col border-r border-slate-800 p-3 space-y-3 overflow-hidden bg-slate-950">
+        <div className="lg:col-span-7 flex flex-col border-b lg:border-b-0 lg:border-r border-slate-800 p-2.5 sm:p-3 space-y-3 lg:overflow-hidden bg-slate-950 min-h-[380px] lg:min-h-0">
           {/* Barcode Scanner Bar */}
           <form onSubmit={handleBarcodeSubmit} className="flex items-center space-x-2">
             <div className="relative flex-1">
@@ -287,7 +287,7 @@ export const PosTerminal: React.FC<PosTerminalProps> = ({ store }) => {
                 )}
               </div>
             ) : (
-              <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-2.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2.5">
                 {filteredProducts.map(product => {
                   const inCart = state.cart.find(c => c.product.id === product.id);
                   return (
@@ -353,7 +353,7 @@ export const PosTerminal: React.FC<PosTerminalProps> = ({ store }) => {
         </div>
 
         {/* RIGHT PANE: Cart & Checkout Summary (5 Cols) */}
-        <div className="lg:col-span-5 flex flex-col bg-slate-900 border-l border-slate-800 p-3 select-none">
+        <div className="lg:col-span-5 flex flex-col bg-slate-900 border-t lg:border-t-0 border-l-0 lg:border-l border-slate-800 p-2.5 sm:p-3 select-none">
           {/* Customer Loyalty Search Bar */}
           <div className="bg-slate-950 p-2.5 rounded-lg border border-slate-800 mb-2.5">
             {state.selectedCustomer ? (
@@ -414,7 +414,7 @@ export const PosTerminal: React.FC<PosTerminalProps> = ({ store }) => {
           </div>
 
           {/* Cart Items Table */}
-          <div className="flex-1 bg-slate-950 rounded-lg border border-slate-800 overflow-y-auto mb-2.5">
+          <div className="flex-1 min-h-[160px] bg-slate-950 rounded-lg border border-slate-800 overflow-y-auto overflow-x-auto mb-2.5">
             {state.cart.length === 0 ? (
               <div className="h-full flex flex-col items-center justify-center p-6 text-center text-slate-500">
                 <ShoppingBag className="w-10 h-10 mb-2 text-slate-700" />
@@ -424,7 +424,7 @@ export const PosTerminal: React.FC<PosTerminalProps> = ({ store }) => {
                 </p>
               </div>
             ) : (
-              <table className="w-full text-left text-xs border-collapse">
+              <table className="w-full min-w-[340px] text-left text-xs border-collapse">
                 <thead>
                   <tr className="bg-slate-900 text-slate-400 text-[10px] uppercase font-semibold border-b border-slate-800 sticky top-0">
                     <th className="p-2">Solution / Asset</th>
@@ -555,7 +555,7 @@ export const PosTerminal: React.FC<PosTerminalProps> = ({ store }) => {
           </div>
 
           {/* POS Action Hotkeys & Payment Trigger */}
-          <div className="grid grid-cols-4 gap-1.5 mb-2">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 mb-2">
             <button
               onClick={parkCart}
               disabled={state.cart.length === 0}
@@ -600,10 +600,10 @@ export const PosTerminal: React.FC<PosTerminalProps> = ({ store }) => {
           <button
             onClick={handleProceedPayment}
             disabled={state.cart.length === 0}
-            className="w-full py-3 rounded-lg bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 disabled:opacity-40 text-slate-950 font-extrabold text-sm uppercase tracking-wider flex items-center justify-center space-x-2 shadow-lg transition"
+            className="w-full py-2.5 sm:py-3 px-3 rounded-lg bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 disabled:opacity-40 text-slate-950 font-extrabold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center space-x-2 shadow-lg transition"
           >
-            <CreditCard className="w-5 h-5" />
-            <span>Generate SOW & Invoice (F12) • ৳{grandTotal.toLocaleString()}</span>
+            <CreditCard className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+            <span className="truncate">Generate SOW & Invoice (F12) • ৳{grandTotal.toLocaleString()}</span>
           </button>
         </div>
       </div>

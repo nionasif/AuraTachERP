@@ -30,27 +30,27 @@ export const SetupModal: React.FC<SetupModalProps> = ({ store }) => {
   return (
     <div
       onClick={(e) => { if (e.target === e.currentTarget) closeModal(); }}
-      className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+      className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4"
     >
-      <div className="bg-slate-900 border border-slate-750 rounded-xl w-full max-w-4xl shadow-2xl overflow-hidden text-slate-100 flex flex-col max-h-[88vh]">
+      <div className="bg-slate-900 border border-slate-750 rounded-xl w-full max-w-4xl shadow-2xl overflow-hidden text-slate-100 flex flex-col max-h-[92vh] sm:max-h-[88vh]">
         {/* Header */}
         <div className="bg-slate-950 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <Server className="w-5 h-5 text-amber-400" />
-            <h3 className="font-bold text-sm text-slate-100">
-              Enterprise Cloud & Tech Hub Setup (DC01 Silicon Tower Configuration)
+            <Server className="w-5 h-5 text-amber-400 flex-shrink-0" />
+            <h3 className="font-bold text-sm text-slate-100 truncate">
+              Enterprise Cloud & Tech Hub Setup (DC01 Configuration)
             </h3>
           </div>
-          <button onClick={closeModal} className="text-slate-400 hover:text-white">
+          <button onClick={closeModal} className="text-slate-400 hover:text-white flex-shrink-0">
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Tab Navigation */}
-        <div className="grid grid-cols-5 bg-slate-950 border-b border-slate-800 text-xs font-semibold select-none">
+        <div className="flex bg-slate-950 border-b border-slate-800 text-xs font-semibold select-none overflow-x-auto whitespace-nowrap">
           <button
             onClick={() => setActiveTab('OUTLET')}
-            className={`py-2.5 px-3 flex items-center justify-center space-x-1.5 transition ${
+            className={`py-2.5 px-3 flex-1 min-w-[100px] flex items-center justify-center space-x-1.5 transition ${
               activeTab === 'OUTLET' ? 'bg-slate-850 text-amber-400 border-b-2 border-amber-400 font-bold' : 'text-slate-400 hover:text-slate-200'
             }`}
           >
@@ -60,7 +60,7 @@ export const SetupModal: React.FC<SetupModalProps> = ({ store }) => {
 
           <button
             onClick={() => setActiveTab('REGISTERS')}
-            className={`py-2.5 px-3 flex items-center justify-center space-x-1.5 transition ${
+            className={`py-2.5 px-3 flex-1 min-w-[100px] flex items-center justify-center space-x-1.5 transition ${
               activeTab === 'REGISTERS' ? 'bg-slate-850 text-amber-400 border-b-2 border-amber-400 font-bold' : 'text-slate-400 hover:text-slate-200'
             }`}
           >
@@ -70,7 +70,7 @@ export const SetupModal: React.FC<SetupModalProps> = ({ store }) => {
 
           <button
             onClick={() => setActiveTab('VAT')}
-            className={`py-2.5 px-3 flex items-center justify-center space-x-1.5 transition ${
+            className={`py-2.5 px-3 flex-1 min-w-[110px] flex items-center justify-center space-x-1.5 transition ${
               activeTab === 'VAT' ? 'bg-slate-850 text-amber-400 border-b-2 border-amber-400 font-bold' : 'text-slate-400 hover:text-slate-200'
             }`}
           >
@@ -80,7 +80,7 @@ export const SetupModal: React.FC<SetupModalProps> = ({ store }) => {
 
           <button
             onClick={() => setActiveTab('PAYMENT')}
-            className={`py-2.5 px-3 flex items-center justify-center space-x-1.5 transition ${
+            className={`py-2.5 px-3 flex-1 min-w-[110px] flex items-center justify-center space-x-1.5 transition ${
               activeTab === 'PAYMENT' ? 'bg-slate-850 text-amber-400 border-b-2 border-amber-400 font-bold' : 'text-slate-400 hover:text-slate-200'
             }`}
           >
@@ -90,7 +90,7 @@ export const SetupModal: React.FC<SetupModalProps> = ({ store }) => {
 
           <button
             onClick={() => setActiveTab('SECURITY')}
-            className={`py-2.5 px-3 flex items-center justify-center space-x-1.5 transition ${
+            className={`py-2.5 px-3 flex-1 min-w-[110px] flex items-center justify-center space-x-1.5 transition ${
               activeTab === 'SECURITY' ? 'bg-slate-850 text-amber-400 border-b-2 border-amber-400 font-bold' : 'text-slate-400 hover:text-slate-200'
             }`}
           >

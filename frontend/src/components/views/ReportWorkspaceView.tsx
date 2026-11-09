@@ -360,7 +360,7 @@ export const ReportWorkspaceView: React.FC<ReportWorkspaceViewProps> = ({ store 
   return (
     <div className="flex-1 bg-slate-950 flex flex-col overflow-hidden text-slate-100 font-sans">
       {/* Top Workspace Header */}
-      <div className="bg-slate-900 border-b border-slate-800 px-4 py-2.5 flex items-center justify-between text-xs select-none">
+      <div className="bg-slate-900 border-b border-slate-800 px-3 sm:px-4 py-2 sm:py-2.5 flex flex-wrap items-center justify-between gap-2 text-xs select-none">
         <div className="flex items-center space-x-2">
           <button
             onClick={() => setView('DASHBOARD')}
@@ -372,14 +372,14 @@ export const ReportWorkspaceView: React.FC<ReportWorkspaceViewProps> = ({ store 
           <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
           <span className="font-bold text-amber-300 flex items-center space-x-1.5">
             <Receipt className="w-4 h-4 text-emerald-400" />
-            <span>Finance, General Ledger & Tax Accounting Workspace</span>
+            <span className="truncate max-w-[200px] sm:max-w-none">Finance & Accounting</span>
           </span>
-          <span className="bg-emerald-950 text-emerald-400 border border-emerald-800 px-2 py-0.5 rounded text-[10px] font-mono font-bold ml-2">
+          <span className="bg-emerald-950 text-emerald-400 border border-emerald-800 px-2 py-0.5 rounded text-[10px] font-mono font-bold ml-2 hidden sm:inline">
             NBR MUSHAK-6.3 COMPLIANT
           </span>
         </div>
 
-        <div className="flex items-center space-x-2">
+        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
           <button
             onClick={handleRefresh}
             disabled={isRefreshing}
@@ -421,7 +421,7 @@ export const ReportWorkspaceView: React.FC<ReportWorkspaceViewProps> = ({ store 
       )}
 
       {/* Executive KPI Summary Bar (Purely real computed values) */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-3 p-4 bg-slate-900/60 border-b border-slate-800">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-3 p-3 sm:p-4 bg-slate-900/60 border-b border-slate-800">
         <div className="bg-slate-900/90 border border-slate-800 rounded-lg p-3 flex items-center justify-between">
           <div>
             <div className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Total Revenue</div>

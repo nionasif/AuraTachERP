@@ -94,9 +94,15 @@ const VIEW_TO_PATH: Record<ViewType, string> = {
 export const App: React.FC = () => {
   const store = useERPStore();
   const { state, closeModal, setView } = store;
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
   const isInitialMount = React.useRef(true);
   const isPopStateNavigation = React.useRef(false);
+
+  // Close mobile menu whenever view changes
+  React.useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [state.currentView]);
 
   // 1. Initial canonical URL synchronization and popstate handler for Back/Forward navigation
   React.useEffect(() => {
@@ -181,11 +187,18 @@ export const App: React.FC = () => {
   return (
     <div className="h-screen w-screen flex bg-gray-50 text-gray-900 overflow-hidden font-sans">
       {/* Left menu */}
-      <Sidebar store={store} />
+      <Sidebar
+        store={store}
+        mobileOpen={mobileMenuOpen}
+        onCloseMobile={() => setMobileMenuOpen(false)}
+      />
 
       <div className="flex-1 min-w-0 flex flex-col">
         {/* Page title bar */}
-        <TopHeader store={store} />
+        <TopHeader
+          store={store}
+          onOpenMobileMenu={() => setMobileMenuOpen(true)}
+        />
 
         {/* Page content */}
         <main className="flex-1 min-h-0 flex flex-col overflow-hidden relative">
