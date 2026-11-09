@@ -6,7 +6,8 @@
 
 import { ProjectEngagement, ProjectTask, Product, Invoice, Vendor, PurchaseOrder, GoodsReceiveNote, GLAccount, FinancialTransaction, FinancialSummary, HelpDeskTicket, HardwareAsset, SoftwareLicense, HREmployee, TerminalRoster, AttendanceRecord, AttendanceMonth, AttendanceBoard } from '../types/erp';
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = (import.meta as any).env?.VITE_API_BASE || 'http://localhost:5000/api';
+const FASTAPI_BASE = (import.meta as any).env?.VITE_FASTAPI_BASE || 'http://localhost:8001/api';
 
 export interface MLSummary {
   status: string;
@@ -639,7 +640,7 @@ class EnterpriseApiService {
         ...(token ? { Authorization: `Bearer ${token}` } : {}),
       };
 
-      const res = await fetch(`http://localhost:8001/api${endpoint}`, {
+      const res = await fetch(`${FASTAPI_BASE}${endpoint}`, {
         method,
         headers,
         body: body ? JSON.stringify(body) : undefined,
