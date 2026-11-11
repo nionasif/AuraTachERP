@@ -13,7 +13,7 @@ DEFAULT_ENTERPRISE_ACCOUNTS = [
         "full_name": "System Administrator",
         "phone": "+880 1700-000001",
         "department": "Executive & Governance",
-        "designation": "Chief Technology Officer / Super Admin",
+        "designation": "CEO / Managing Director",
         "joining_date": "2024-01-01",
         "salary": 250000.0,
         "address": "Silicon Tower, Gulshan-2, Dhaka",
@@ -27,7 +27,7 @@ DEFAULT_ENTERPRISE_ACCOUNTS = [
         "full_name": "Fatima Rahman",
         "phone": "+880 1700-000002",
         "department": "People & Culture",
-        "designation": "Head of Human Resources & People",
+        "designation": "HR Manager",
         "joining_date": "2024-02-15",
         "salary": 150000.0,
         "address": "Banani DOHS, Dhaka",
@@ -41,7 +41,7 @@ DEFAULT_ENTERPRISE_ACCOUNTS = [
         "full_name": "Tanvir Ahmed",
         "phone": "+880 1700-000003",
         "department": "Client Accounts & Growth",
-        "designation": "Enterprise Sales & Accounts Director",
+        "designation": "Sales Manager",
         "joining_date": "2024-03-01",
         "salary": 160000.0,
         "address": "Uttara Sector 4, Dhaka",
@@ -55,7 +55,7 @@ DEFAULT_ENTERPRISE_ACCOUNTS = [
         "full_name": "Nusrat Jahan",
         "phone": "+880 1700-000004",
         "department": "Engineering Delivery",
-        "designation": "Senior Project & Delivery Manager",
+        "designation": "Sr. Pro Manager",
         "joining_date": "2024-03-15",
         "salary": 155000.0,
         "address": "Mirpur DOHS, Dhaka",
@@ -69,7 +69,7 @@ DEFAULT_ENTERPRISE_ACCOUNTS = [
         "full_name": "Rafiqul Islam",
         "phone": "+880 1700-000005",
         "department": "Finance & Compliance",
-        "designation": "Chief Financial Officer & Comptroller",
+        "designation": "Sr. Finance & Accountant",
         "joining_date": "2024-01-10",
         "salary": 175000.0,
         "address": "Dhanmondi Road 27, Dhaka",
@@ -83,7 +83,7 @@ DEFAULT_ENTERPRISE_ACCOUNTS = [
         "full_name": "Kamal Hossain",
         "phone": "+880 1700-000006",
         "department": "Supply Chain & Assets",
-        "designation": "Procurement & Asset Inventory Manager",
+        "designation": "Inventory Manager",
         "joining_date": "2024-04-01",
         "salary": 140000.0,
         "address": "Bashundhara R/A, Block C, Dhaka",
@@ -96,8 +96,8 @@ DEFAULT_ENTERPRISE_ACCOUNTS = [
         "employee_id": "EMP-007",
         "full_name": "Ayesha Siddiqua",
         "phone": "+880 1700-000007",
-        "department": "Tier-2 IT Help Desk",
-        "designation": "Tier-2 IT Support Lead Specialist",
+        "department": "Sales & Client Service",
+        "designation": "Jr Sales Exe",
         "joining_date": "2024-05-01",
         "salary": 95000.0,
         "address": "Mohakhali Wireless, Dhaka",
@@ -110,8 +110,8 @@ DEFAULT_ENTERPRISE_ACCOUNTS = [
         "employee_id": "EMP-008",
         "full_name": "Mahmud Hasan",
         "phone": "+880 1700-000008",
-        "department": "General Operations",
-        "designation": "Datacenter Systems Engineer",
+        "department": "Supply Chain & Assets",
+        "designation": "IT Asset Officer",
         "joining_date": "2024-06-01",
         "salary": 85000.0,
         "address": "Niketan, Gulshan-1, Dhaka",
@@ -187,22 +187,61 @@ def seed_database(db: Session):
     print("==> Database verified and seeded with all 8 enterprise roles.")
 
 
-# Sample reporting lines for the 8 built-in accounts. Applied only ONCE: if somebody
-# already has a manager set (i.e. you started using the org tree), this never touches it.
+# Hierarchy tree matching enterprise structure:
+# CEO / Managing Director
+#   ├── (1) HR Manager
+#   ├── (2) Sr. Finance & Accountant
+#   ├── (3) Inventory Manager
+#   │     └── i. IT Asset Officer
+#   ├── (4) Sales Manager
+#   │     ├── i. Jr Sales Exe
+#   │     └── ii. CRM Exe
+#   └── (5) Sr. Pro Manager
+#         ├── i. Jr Project Manager
+#         ├── ii. Software Developer
+#         └── iii. QA Eng
 SAMPLE_HIERARCHY = {
-    "EMP-002": "EMP-001",  # HR head          -> CTO
-    "EMP-003": "EMP-001",  # Sales director   -> CTO
-    "EMP-004": "EMP-001",  # Delivery manager -> CTO
-    "EMP-005": "EMP-001",  # CFO              -> CTO
-    "EMP-006": "EMP-005",  # Procurement      -> CFO
-    "EMP-007": "EMP-004",  # Help desk lead   -> Delivery manager
-    "EMP-008": "EMP-004",  # Systems engineer -> Delivery manager
+    # Level 1 under CEO / Managing Director
+    "EMP-002": "EMP-001",  # (1) HR Manager
+    "EMP-005": "EMP-001",  # (2) Sr. Finance & Accountant
+    "EMP-006": "EMP-001",  # (3) Inventory Manager
+    "EMP-003": "EMP-001",  # (4) Sales Manager
+    "EMP-004": "EMP-001",  # (5) Sr. Pro Manager
+
+    # Level 2 under (3) Inventory Manager
+    "EMP-008": "EMP-006",  # i. IT Asset Officer
+
+    # Level 2 under (4) Sales Manager
+    "EMP-007": "EMP-003",  # i. Jr Sales Exe
+    "EMP-664": "EMP-003",  # ii. CRM Exe
+
+    # Level 2 under (5) Sr. Pro Manager
+    "EMP017": "EMP-004",   # i. Jr Project Manager
+    "EMP-658": "EMP-004",  # ii. Software Developer
+    "EMP-663": "EMP-004",  # iii. QA Eng
+}
+
+DESIGNATION_MAPPINGS = {
+    "EMP-001": "CEO / Managing Director",
+    "EMP-002": "HR Manager",
+    "EMP-005": "Sr. Finance & Accountant",
+    "EMP-006": "Inventory Manager",
+    "EMP-003": "Sales Manager",
+    "EMP-004": "Sr. Pro Manager",
+    "EMP-008": "IT Asset Officer",
+    "EMP-007": "Jr Sales Exe",
+    "EMP-664": "CRM Exe",
+    "EMP017": "Jr Project Manager",
+    "EMP-658": "Software Developer",
+    "EMP-663": "QA Eng",
 }
 
 
 def seed_sample_hierarchy(db: Session):
-    if db.query(models.Employee).filter(models.Employee.reports_to.isnot(None)).count() > 0:
-        return
+    for badge, desig in DESIGNATION_MAPPINGS.items():
+        emp = db.query(models.Employee).filter(models.Employee.employee_id == badge).first()
+        if emp:
+            emp.designation = desig
     for badge, manager in SAMPLE_HIERARCHY.items():
         emp = db.query(models.Employee).filter(models.Employee.employee_id == badge).first()
         boss = db.query(models.Employee).filter(models.Employee.employee_id == manager).first()

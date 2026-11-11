@@ -2,6 +2,27 @@ import { EmployeeRecord } from '../../types/erp';
 
 export const isActive = (e: EmployeeRecord) => String(e.employment_status).toLowerCase() === 'active';
 
+const getDesignationRank = (designation?: string): number => {
+  if (!designation) return 999;
+  const d = designation.toLowerCase().trim();
+  if (d.includes('hr manager')) return 1;
+  if (d.includes('finance') || d.includes('accountant')) return 2;
+  if (d.includes('inventory manager')) return 3;
+  if (d.includes('sales manager')) return 4;
+  if (d.includes('sr. pro') || d.includes('senior project manager') || d.includes('project manager & delivery')) return 5;
+
+  if (d.includes('it asset')) return 10;
+
+  if (d.includes('jr sales') || d.includes('junior sales')) return 20;
+  if (d.includes('crm')) return 21;
+
+  if (d.includes('jr project') || d.includes('junior project')) return 30;
+  if (d.includes('software') || d.includes('developer')) return 31;
+  if (d.includes('qa')) return 32;
+
+  return 999;
+};
+
 /** badge id -> list of direct reports */
 export const buildChildren = (employees: EmployeeRecord[]) => {
   const ids = new Set(employees.map(e => e.employee_id));
@@ -13,7 +34,14 @@ export const buildChildren = (employees: EmployeeRecord[]) => {
       map.set(e.reports_to, list);
     }
   }
-  for (const list of map.values()) list.sort((a, b) => a.full_name.localeCompare(b.full_name));
+  for (const list of map.values()) {
+    list.sort((a, b) => {
+      const rankA = getDesignationRank(a.designation);
+      const rankB = getDesignationRank(b.designation);
+      if (rankA !== rankB) return rankA - rankB;
+      return a.full_name.localeCompare(b.full_name);
+    });
+  }
   return map;
 };
 

@@ -20,7 +20,7 @@
       "role": "Super Admin",
       "passwordHash": "$2a$10$y/7WIXxhjEE7TGlIUmXmSefWrtzkNXJuBVsMElsEgbgnFe8TpYhPu",
       "department": "Executive & Governance",
-      "title": "Super Administrator",
+      "title": "CEO / Managing Director",
       "isActive": true,
       "mfaEnabled": false,
       "lastLogin": null
@@ -33,7 +33,7 @@
       "role": "HR Manager",
       "passwordHash": "$2a$10$y/7WIXxhjEE7TGlIUmXmSefWrtzkNXJuBVsMElsEgbgnFe8TpYhPu",
       "department": "People & Culture",
-      "title": "Head of Human Resources & People",
+      "title": "HR Manager",
       "isActive": true,
       "mfaEnabled": false,
       "lastLogin": null
@@ -46,7 +46,7 @@
       "role": "Sales Manager",
       "passwordHash": "$2a$10$y/7WIXxhjEE7TGlIUmXmSefWrtzkNXJuBVsMElsEgbgnFe8TpYhPu",
       "department": "Client Accounts & Growth",
-      "title": "Enterprise Sales & Accounts Director",
+      "title": "Sales Manager",
       "isActive": true,
       "mfaEnabled": false,
       "lastLogin": null
@@ -59,7 +59,7 @@
       "role": "Project Manager",
       "passwordHash": "$2a$10$y/7WIXxhjEE7TGlIUmXmSefWrtzkNXJuBVsMElsEgbgnFe8TpYhPu",
       "department": "Engineering Delivery",
-      "title": "Senior Project & Delivery Manager",
+      "title": "Sr. Pro Manager",
       "isActive": true,
       "mfaEnabled": false,
       "lastLogin": null
@@ -72,7 +72,7 @@
       "role": "Finance Manager",
       "passwordHash": "$2a$10$y/7WIXxhjEE7TGlIUmXmSefWrtzkNXJuBVsMElsEgbgnFe8TpYhPu",
       "department": "Finance & Compliance",
-      "title": "Chief Financial Officer & Comptroller",
+      "title": "Sr. Finance & Accountant",
       "isActive": true,
       "mfaEnabled": false,
       "lastLogin": null
@@ -85,7 +85,7 @@
       "role": "Procurement Manager",
       "passwordHash": "$2a$10$y/7WIXxhjEE7TGlIUmXmSefWrtzkNXJuBVsMElsEgbgnFe8TpYhPu",
       "department": "Supply Chain & Assets",
-      "title": "Procurement & Asset Inventory Manager",
+      "title": "Inventory Manager",
       "isActive": true,
       "mfaEnabled": false,
       "lastLogin": null
@@ -97,8 +97,8 @@
       "name": "Ayesha Siddiqua",
       "role": "Support Staff",
       "passwordHash": "$2a$10$y/7WIXxhjEE7TGlIUmXmSefWrtzkNXJuBVsMElsEgbgnFe8TpYhPu",
-      "department": "Tier-2 IT Help Desk",
-      "title": "Tier-2 IT Support Lead Specialist",
+      "department": "Sales & Client Service",
+      "title": "Jr Sales Exe",
       "isActive": true,
       "mfaEnabled": false,
       "lastLogin": null
@@ -110,8 +110,8 @@
       "name": "Mahmud Hasan",
       "role": "Employee",
       "passwordHash": "$2a$10$y/7WIXxhjEE7TGlIUmXmSefWrtzkNXJuBVsMElsEgbgnFe8TpYhPu",
-      "department": "General Operations",
-      "title": "Datacenter Systems Engineer",
+      "department": "Supply Chain & Assets",
+      "title": "IT Asset Officer",
       "isActive": true,
       "mfaEnabled": false,
       "lastLogin": null
@@ -2958,6 +2958,34 @@
       ],
       "notes": "Industry: Manufacturing. Services engaged: Cloud Migration, AI/ML Solutions. Total Interactions: 32",
       "createdAt": "2024-12-23"
+    },
+    {
+      "id": "CUST-9297",
+      "name": "sky tech",
+      "companyName": "sky tech",
+      "industry": "Technology & Enterprise Software",
+      "tier": "SILVER",
+      "slaTier": "SILVER",
+      "primaryContact": {
+        "name": "sky tech",
+        "email": "sky.tech@gmail.com",
+        "phone": "+880-174596"
+      },
+      "email": "sky.tech@gmail.com",
+      "phone": "+880-174596",
+      "billingAddress": "Dhaka Commercial District, Bangladesh",
+      "taxIdentificationBIN": "006548022-0101",
+      "contractValueBDT": 100000,
+      "totalSpent": 100000,
+      "points": 60000,
+      "slaCreditsBDT": 60000,
+      "slaUptimeCommitment": "99.90%",
+      "status": "ACTIVE_CLIENT",
+      "retainedHoursBalance": 24,
+      "lastVisit": "2026-11-11",
+      "lastInteraction": "2026-11-11",
+      "notes": "gfjuhgsret",
+      "createdAt": "2026-11-11T04:48:29.298Z"
     }
   ],
   "opportunities": [],
@@ -3321,9 +3349,23 @@
           "sprint": "Sprint 2",
           "createdAt": "2023-08-10",
           "dueDate": "2024-02-14"
+        },
+        {
+          "id": "TSK-5380",
+          "title": "ftyguhjkj",
+          "description": "sdfghjk",
+          "status": "TODO",
+          "priority": "HIGH",
+          "assignee": "Anika Islam",
+          "estimatedHours": 16,
+          "loggedHours": 0,
+          "sprint": "Sprint 1",
+          "createdAt": "2026-11-11",
+          "dueDate": "2026-11-03"
         }
       ],
-      "createdAt": "2023-08-10T00:00:00.000Z"
+      "createdAt": "2023-08-10T00:00:00.000Z",
+      "updatedAt": "2026-11-11T04:58:32.629Z"
     },
     {
       "id": "PRJ006",
@@ -6137,7 +6179,25 @@
       "createdAt": "2026-07-12T00:00:00.000Z"
     }
   ],
-  "products": [],
+  "products": [
+    {
+      "id": "PRD-1794372711114",
+      "sku": "SN-1567",
+      "barcode": "526281221969",
+      "name": "apple monitor 1",
+      "department": "Datacenter & IT Infrastructure",
+      "category": "IT Equipment",
+      "price": 50000,
+      "costPrice": 50000,
+      "stock": 10,
+      "minStock": 1,
+      "uom": "UNIT",
+      "size": "Enterprise Spec",
+      "color": "Production",
+      "agingDays": 0,
+      "createdAt": "2026-11-11T04:51:51.114Z"
+    }
+  ],
   "invoices": [
     {
       "id": "INV0001",
@@ -11803,6 +11863,28 @@
       "resource": "Updated shift roster for Tanvir (Desk #901)",
       "status": "SUCCESS",
       "hash": "c5c26c15935d0ee6a339116aa682bc2d6fbe9997a62fcc7f8f67f3cb2cb8863d",
+      "metadata": {}
+    },
+    {
+      "id": "AUD-1794372509316-163",
+      "timestamp": "2026-11-11T04:48:29.316Z",
+      "actor": "Super Admin (SUPER_ADMIN)",
+      "ipAddress": "::1",
+      "action": "CLIENT_ENROLLED",
+      "resource": "Enrolled corporate account sky tech (SILVER)",
+      "status": "SUCCESS",
+      "hash": "f719f6c193f3dcda80a7e971e0205dcfbf4299d6cf7c6371ae3ea472982e0cc2",
+      "metadata": {}
+    },
+    {
+      "id": "AUD-1794373112683-640",
+      "timestamp": "2026-11-11T04:58:32.682Z",
+      "actor": "Nusrat Jahan (PROJECT_MANAGER)",
+      "ipAddress": "::1",
+      "action": "PROJECT_TASK_CREATED",
+      "resource": "Added task \"ftyguhjkj\" to project PRJ-PRJ005-UNIT",
+      "status": "SUCCESS",
+      "hash": "5448408ed3733b1aa8623a83ae27d20db2cd45498bc94b790614e0b527bf046e",
       "metadata": {}
     }
   ]
