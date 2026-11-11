@@ -187,64 +187,130 @@ def seed_database(db: Session):
     print("==> Database verified and seeded with all 8 enterprise roles.")
 
 
-# Hierarchy tree matching enterprise structure:
+# 30-Person Curated Enterprise Hierarchy:
 # CEO / Managing Director
-#   ├── (1) HR Manager
-#   ├── (2) Sr. Finance & Accountant
+#   ├── (1) HR Manager (No sub-branches)
+#   ├── (2) Sr. Finance & Accountant (No sub-branches)
 #   ├── (3) Inventory Manager
 #   │     └── i. IT Asset Officer
+#   │           ├── Mahmud Khan (IT Systems Specialist)
+#   │           ├── Sharmin Haque (Asset Inventory Associate)
+#   │           └── Shuvo Islam (Procurement Officer)
 #   ├── (4) Sales Manager
 #   │     ├── i. Jr Sales Exe
+#   │     │     ├── Shuvo Haque (Sales Officer)
+#   │     │     ├── Nusrat Uddin (Corporate Sales Associate)
+#   │     │     └── Naeem Islam (Accounts Executive)
 #   │     └── ii. CRM Exe
+#   │           ├── Farhana Siddique (Customer Support Agent)
+#   │           ├── Tasnim Das (Support Specialist)
+#   │           └── Nabila Sarker (Client Service Agent)
 #   └── (5) Sr. Pro Manager
 #         ├── i. Jr Project Manager
+#         │     ├── Mizan Roy (Project Delivery Lead)
+#         │     └── Tahmina Hossain (Agile Coordinator)
 #         ├── ii. Software Developer
+#         │     ├── IMARAN (Senior Software Engineer)
+#         │     ├── Sabbir Haque (Backend Systems Engineer)
+#         │     ├── Rony Sarker (Frontend Engineer)
+#         │     ├── Hasan Das (Fullstack Engineer)
+#         │     ├── Mim Karim (UI/UX Frontend Designer)
+#         │     └── Puja Ahmed (Web Application Developer)
 #         └── iii. QA Eng
+#               └── Farhana Talukder (Software QA Tester)
 SAMPLE_HIERARCHY = {
     # Level 1 under CEO / Managing Director
-    "EMP-002": "EMP-001",  # (1) HR Manager
-    "EMP-005": "EMP-001",  # (2) Sr. Finance & Accountant
+    "EMP-002": "EMP-001",  # (1) HR Manager (No sub-branches)
+    "EMP-005": "EMP-001",  # (2) Sr. Finance & Accountant (No sub-branches)
     "EMP-006": "EMP-001",  # (3) Inventory Manager
     "EMP-003": "EMP-001",  # (4) Sales Manager
     "EMP-004": "EMP-001",  # (5) Sr. Pro Manager
 
     # Level 2 under (3) Inventory Manager
     "EMP-008": "EMP-006",  # i. IT Asset Officer
+    # Level 3 under IT Asset Officer
+    "EMP013": "EMP-008",   # Procurement Officer
+    "EMP005": "EMP-008",   # IT Systems Specialist
+    "EMP006": "EMP-008",   # Asset Inventory Associate
 
     # Level 2 under (4) Sales Manager
     "EMP-007": "EMP-003",  # i. Jr Sales Exe
+    # Level 3 under Jr Sales Exe
+    "EMP010": "EMP-007",   # Sales Officer
+    "EMP014": "EMP-007",   # Corporate Sales Associate
+    "EMP025": "EMP-007",   # Accounts Executive
+
     "EMP-664": "EMP-003",  # ii. CRM Exe
+    # Level 3 under CRM Exe
+    "EMP003": "EMP-664",   # Customer Support Agent
+    "EMP028": "EMP-664",   # Support Specialist
+    "EMP029": "EMP-664",   # Client Service Agent
 
     # Level 2 under (5) Sr. Pro Manager
     "EMP017": "EMP-004",   # i. Jr Project Manager
+    # Level 3 under Jr Project Manager
+    "EMP024": "EMP017",    # Project Delivery Lead
+    "EMP038": "EMP017",    # Agile Coordinator
+
     "EMP-658": "EMP-004",  # ii. Software Developer
+    # Level 3 under Software Developer
+    "EMP-513": "EMP-658",  # Senior Software Engineer
+    "EMP001": "EMP-658",   # Backend Systems Engineer
+    "EMP002": "EMP-658",   # Frontend Engineer
+    "EMP004": "EMP-658",   # Fullstack Engineer
+    "EMP008": "EMP-658",   # UI/UX Frontend Designer
+    "EMP011": "EMP-658",   # Web Application Developer
+
     "EMP-663": "EMP-004",  # iii. QA Eng
+    # Level 3 under QA Eng
+    "EMP015": "EMP-663",   # Software QA Tester
 }
 
 DESIGNATION_MAPPINGS = {
-    "EMP-001": "CEO / Managing Director",
-    "EMP-002": "HR Manager",
-    "EMP-005": "Sr. Finance & Accountant",
-    "EMP-006": "Inventory Manager",
-    "EMP-003": "Sales Manager",
-    "EMP-004": "Sr. Pro Manager",
-    "EMP-008": "IT Asset Officer",
-    "EMP-007": "Jr Sales Exe",
-    "EMP-664": "CRM Exe",
-    "EMP017": "Jr Project Manager",
-    "EMP-658": "Software Developer",
-    "EMP-663": "QA Eng",
+    "EMP-001": ("CEO / Managing Director", "Executive & Governance"),
+    "EMP-002": ("HR Manager", "People & Culture"),
+    "EMP-005": ("Sr. Finance & Accountant", "Finance & Compliance"),
+    "EMP-006": ("Inventory Manager", "Supply Chain & Assets"),
+    "EMP-008": ("IT Asset Officer", "Supply Chain & Assets"),
+    "EMP013": ("Procurement Officer", "Supply Chain & Assets"),
+    "EMP005": ("IT Systems Specialist", "Supply Chain & Assets"),
+    "EMP006": ("Asset Inventory Associate", "Supply Chain & Assets"),
+    "EMP-003": ("Sales Manager", "Client Accounts & Growth"),
+    "EMP-007": ("Jr Sales Exe", "Sales & Marketing"),
+    "EMP010": ("Sales Officer", "Sales & Marketing"),
+    "EMP014": ("Corporate Sales Associate", "Sales & Marketing"),
+    "EMP025": ("Accounts Executive", "Sales & Marketing"),
+    "EMP-664": ("CRM Exe", "Customer Support"),
+    "EMP003": ("Customer Support Agent", "Customer Support"),
+    "EMP028": ("Support Specialist", "Customer Support"),
+    "EMP029": ("Client Service Agent", "Customer Support"),
+    "EMP-004": ("Sr. Pro Manager", "Engineering Delivery"),
+    "EMP017": ("Jr Project Manager", "Engineering Delivery"),
+    "EMP024": ("Project Delivery Lead", "Engineering Delivery"),
+    "EMP038": ("Agile Coordinator", "Engineering Delivery"),
+    "EMP-658": ("Software Developer", "Engineering Delivery"),
+    "EMP-513": ("Senior Software Engineer", "Engineering Delivery"),
+    "EMP001": ("Backend Systems Engineer", "Engineering Delivery"),
+    "EMP002": ("Frontend Engineer", "Engineering Delivery"),
+    "EMP004": ("Fullstack Engineer", "Engineering Delivery"),
+    "EMP008": ("UI/UX Frontend Designer", "Engineering Delivery"),
+    "EMP011": ("Web Application Developer", "Engineering Delivery"),
+    "EMP-663": ("QA Eng", "Engineering Delivery"),
+    "EMP015": ("Software QA Tester", "Engineering Delivery"),
 }
 
 
 def seed_sample_hierarchy(db: Session):
-    for badge, desig in DESIGNATION_MAPPINGS.items():
-        emp = db.query(models.Employee).filter(models.Employee.employee_id == badge).first()
-        if emp:
+    active_ids = set(DESIGNATION_MAPPINGS.keys())
+    # Deactivate others cleanly
+    for emp in db.query(models.Employee).all():
+        if emp.employee_id not in active_ids:
+            emp.employment_status = "Inactive"
+            emp.reports_to = None
+        else:
+            emp.employment_status = "Active"
+            desig, dept = DESIGNATION_MAPPINGS[emp.employee_id]
             emp.designation = desig
-    for badge, manager in SAMPLE_HIERARCHY.items():
-        emp = db.query(models.Employee).filter(models.Employee.employee_id == badge).first()
-        boss = db.query(models.Employee).filter(models.Employee.employee_id == manager).first()
-        if emp and boss:
-            emp.reports_to = manager
+            emp.department = dept
+            emp.reports_to = SAMPLE_HIERARCHY.get(emp.employee_id)
     db.commit()
