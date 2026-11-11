@@ -97,8 +97,6 @@ export const HomePage: React.FC<HomePageProps> = ({ store }) => {
           <a href="#home" className="text-indigo-600 transition">Home</a>
           <a href="#modules" className="hover:text-indigo-600 transition">ERP Modules</a>
           <a href="#about" className="hover:text-indigo-600 transition">About Us</a>
-          <a href="#capabilities" className="hover:text-indigo-600 transition">Capabilities</a>
-          <a href="#contact" className="hover:text-indigo-600 transition">Contact</a>
         </div>
 
         <div className="flex items-center gap-3">
@@ -221,7 +219,7 @@ export const HomePage: React.FC<HomePageProps> = ({ store }) => {
             <div className="space-y-2.5 max-w-xl">
               <div className="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-600 uppercase tracking-wider">
                 <span className="w-2 h-2 rounded-full bg-indigo-600" />
-                Our Approach &amp; Capabilities
+                Our Approach
               </div>
               <h2 className="text-2xl sm:text-4xl font-black text-gray-900 tracking-tight leading-snug">
                 Essential features for modern business success
@@ -428,7 +426,7 @@ export const HomePage: React.FC<HomePageProps> = ({ store }) => {
       </section>
 
       {/* 6. CLEAN FOOTER */}
-      <footer id="contact" className="bg-gray-900 text-gray-400 border-t border-gray-800 px-4 sm:px-8 lg:px-14 py-12">
+      <footer className="bg-gray-900 text-gray-400 border-t border-gray-800 px-4 sm:px-8 lg:px-14 py-12">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-gray-400">
           <div className="flex items-center gap-3">
             <div className="w-7 h-7 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-extrabold text-xs">
